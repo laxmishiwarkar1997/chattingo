@@ -1,11 +1,25 @@
 version: '3.9'
 
 services:
+  mysql:
+    image: mysql:8.0
+    container_name: chattingo-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - chattingo-network
+
   backend:
-    image: chattingo_backend:latest   # correct, string value
+    image: chattingo_backend:latest   # backend image name
     build:
       context: ./backend
-    restart: always                   # correct, string value
+    restart: always
     depends_on:
       - mysql
     env_file:
@@ -18,7 +32,7 @@ services:
       - chattingo-network
 
   frontend:
-    image: chattingo_frontend:latest
+    image: chattingo_frontend:latest  # frontend image name
     build:
       context: ./frontend
     restart: always
@@ -27,24 +41,9 @@ services:
     networks:
       - chattingo-network
 
-  mysql:
-    image: mysql:8.0
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: example
-      MYSQL_DATABASE: chattingo
-      MYSQL_USER: chattingo
-      MYSQL_PASSWORD: example
-    ports:
-      - "3306:3306"
-    volumes:
-      - chattingo_mysql_data:/var/lib/mysql
-    networks:
-      - chattingo-network
-
 volumes:
-  chattingo_mysql_data:
+  mysql_data:
 
 networks:
   chattingo-network:
-
+    driver: bridge
