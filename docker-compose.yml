@@ -39,4 +39,5 @@ services:
 volumes:
   mysql_data:
 
-ne
+networks:
+  chattingo-network:
