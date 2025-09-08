@@ -37,5 +37,24 @@ services:
     ports:
       - "8080:8080"
     networks:
-      - chattingo-net:
-          driver: bridge
+      - chattingo-net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: chattingo-frontend
+    depends_on:
+      - backend
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - chattingo-net
+
+volumes:
+  db_data:
+
+networks:
+  chattingo-net:
+    driver: bridge
