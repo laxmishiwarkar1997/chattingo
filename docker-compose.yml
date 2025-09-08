@@ -1,47 +1,50 @@
-version: '3.8'
+version: '3.9'
 
 services:
-  mysql:
-    image: mysql:8.0-debian
-    container_name: chattingo-mysql
+  backend:
+    image: chattingo_backend:latest   # correct, string value
+    build:
+      context: ./backend
+    restart: always                   # correct, string value
+    depends_on:
+      - mysql
     env_file:
       - ./backend/.env
-    ports:
-      - "3306:3306"
     volumes:
-      - mysql_data:/var/lib/mysql
+      - ./backend:/usr/local/app
+    ports:
+      - "8080:8080"
     networks:
       - chattingo-network
 
-  backend:
-  image: chattingo_backend:latest
-  build:
-    context: ./backend
-  restart: always           # <- string value, correctly indented
-  depends_on:
-    - mysql
-  env_file:
-    - ./backend/.env
-  volumes:
-    - ./backend:/usr/local/app
-  ports:
-    - "8080:8080"
-  networks:
-    - chattingo-network
-
   frontend:
-  build:
-    context: ./frontend
-  restart: always
-  depends_on:
-    - backend
-  ports:
-    - "80:80"
-  networks:
-    - chattingo-network
+    image: chattingo_frontend:latest
+    build:
+      context: ./frontend
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - chattingo-network
+
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: chattingo
+      MYSQL_USER: chattingo
+      MYSQL_PASSWORD: example
+    ports:
+      - "3306:3306"
+    volumes:
+      - chattingo_mysql_data:/var/lib/mysql
+    networks:
+      - chattingo-network
 
 volumes:
-  mysql_data:
+  chattingo_mysql_data:
 
 networks:
   chattingo-network:
+
