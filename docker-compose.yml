@@ -29,12 +29,15 @@ services:
       - chattingo-network
 
   frontend:
-    image: chattingo-frontend
-    container_name: chattingo-frontend
-    ports:
-      - "80:80"
-    networks:
-      - chattingo-network
+  build:
+    context: ./frontend
+  restart: always
+  depends_on:
+    - backend
+  ports:
+    - "80:80"
+  networks:
+    - chattingo-network
 
 volumes:
   mysql_data:
