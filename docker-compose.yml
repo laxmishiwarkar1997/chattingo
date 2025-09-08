@@ -14,15 +14,16 @@ services:
       - chattingo-network
 
   backend:
+  image: chattingo_backend:latest
   build:
-    context: ./backend            # VPS backend code folder path
-  restart: always
+    context: ./backend
+  restart: always           # <- string value, correctly indented
   depends_on:
     - mysql
   env_file:
-    - ./backend/.env              # strong JWT secret, DB credentials
+    - ./backend/.env
   volumes:
-    - ./backend:/usr/local/app    # code changes reflect live
+    - ./backend:/usr/local/app
   ports:
     - "8080:8080"
   networks:
