@@ -13,21 +13,20 @@ services:
     networks:
       - chattingo-network
 
- backend:
-  build:
-    context: ./backend            #  VPS  backend code folder  path
-  restart: always
-  depends_on:
-    - mysql
-  env_file:
-    - ./backend/.env              #  strong JWT secret , DB credentials
-  volumes:
-    - ./backend:/usr/local/app    # code changes live reflect 
-  ports:
-    - "8080:8080"
-  networks:
-    - chattingo-network
-
+  backend:
+    build:
+      context: ./backend            # VPS backend code folder path
+    restart: always
+    depends_on:
+      - mysql
+    env_file:
+      - ./backend/.env              # strong JWT secret, DB credentials
+    volumes:
+      - ./backend:/usr/local/app    # code changes live reflect
+    ports:
+      - "8080:8080"
+    networks:
+      - chattingo-network
 
   frontend:
     image: chattingo-frontend
@@ -40,6 +39,4 @@ services:
 volumes:
   mysql_data:
 
-networks:
-  chattingo-network:
-
+ne
