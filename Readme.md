@@ -113,7 +113,14 @@ Pipeline is defined in the `Jenkinsfile` in the root directory.
 
 ## 📸 Screenshots / Demo (Optional)
 
-<!-- Add screenshots or demo GIFs here -->
+## Screenshots 📸
+
+### Login Page
+![Login Page](https://raw.githubusercontent.com/laxmishiwarkar1997/chattingo/main/login.png)
+
+### Chat Interface
+![Chat Interface](https://raw.githubusercontent.com/laxmishiwarkar1997/chattingo/main/chat.png)
+
 
 ---
 
