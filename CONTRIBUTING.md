@@ -1,4 +1,4 @@
-# 🤝 Contributing to Chattingo Hackathon
+# 🤝 Contributing 
 
 ## 📋 Table of Contents
 
