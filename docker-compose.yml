@@ -43,7 +43,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-      args:
+      environment:
         REACT_APP_API_URL: http://backend:8080
     container_name: chattingo-frontend
     depends_on:
