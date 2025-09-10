@@ -3,10 +3,11 @@
 ![Build Status](https://img.shields.io/jenkins/build?jobUrl=http://jenkins.72.60.111.24.nip.io/job/chattingo-pipeline)
 ![Frontend Docker Pulls](https://img.shields.io/docker/pulls/laxmi007/chattingo-frontend)
 ![Backend Docker Pulls](https://img.shields.io/docker/pulls/laxmi007/chattingo-backend)
-![Trivy Scan Critical](https://img.shields.io/badge/trivy-critical-0-red)
-![Trivy Scan High](https://img.shields.io/badge/trivy-high-0-orange)
-![Trivy Scan Medium](https://img.shields.io/badge/trivy-medium-0-yellow)
-![Trivy Scan Low](https://img.shields.io/badge/trivy-low-0-blue)
+![Trivy Critical](https://img.shields.io/badge/Trivy-Critical%200-red)
+![Trivy High](https://img.shields.io/badge/Trivy-High%200-orange)
+![Trivy Medium](https://img.shields.io/badge/Trivy-Medium%200-yellow)
+![Trivy Low](https://img.shields.io/badge/Trivy-Low%200-blue)
+
 
 Chattingo is a fun and dynamic real-time chat application designed to keep you connected effortlessly. Built with a modern tech stack and automated deployment, it demonstrates both cutting-edge frontend/backend development and professional DevOps practices.
 
