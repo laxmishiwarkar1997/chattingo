@@ -16,10 +16,11 @@ pipeline {
         }
 
         stage('Image Build') {
-            steps {
-                sh "docker build -t ${FRONTEND_IMAGE}:${IMAGE_TAG} ./frontend"
-                sh "docker build -t ${BACKEND_IMAGE}:${IMAGE_TAG} ./backend"
-            }
+           steps {
+        // scan the workspace (your source code) for vulnerabilities
+        sh "trivy fs --exit-code 0 --severity CRITICAL,HIGH . > trivy-fs-report.txt || true"
+        sh "cat trivy-fs-report.txt"
+        }
         }
 
         stage('Filesystem Scan') {
