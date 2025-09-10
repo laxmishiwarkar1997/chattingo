@@ -23,7 +23,7 @@ public class AppConfig {
 
     private final JwtValidator jwtValidator;
 
-    @Value("${cors.allowed.origins:http://localhost:3000,http://localhost,http://chatitngo.72.60.111.24.nip.io}")
+    @Value("${cors.allowed.origins:http://localhost:3000,http://localhost}")
     private String allowedOrigins;
 
     @Value("${cors.allowed.methods:GET,POST,PUT,DELETE,OPTIONS}")
