@@ -90,18 +90,14 @@ The Jenkins pipeline automates:
 6. **Deploy**: Deploys the application to VPS.
 
 Pipeline is defined in the `Jenkinsfile` in the root directory.
-
 ---
-
 ## 🌐 Deployment Details
 
-* Hosted on a VPS.
-* Accessible via a nip.io domain: `http://72.60.111.24/`
-* Docker Hub images:
-
-  * Frontend: `docker.io/laxmi007/chattingo-frontend`
-  * Backend: `docker.io/laxmi007/chattingo-backend`
-
+* Hosted on a VPS.  
+* Accessible via: [http://72.60.111.24/](http://72.60.111.24/)  
+* Docker Hub images:  
+  * Frontend: [docker.io/laxmi007/chattingo-frontend](https://hub.docker.com/r/laxmi007/chattingo-frontend)  
+  * Backend: [docker.io/laxmi007/chattingo-backend](https://hub.docker.com/r/laxmi007/chattingo-backend)  
 ---
 
 ## 🔒 Security / Quality
