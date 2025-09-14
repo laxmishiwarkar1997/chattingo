@@ -54,7 +54,7 @@ const Signin = () => {
         <div className="p-10 w-[30%] shadow-md bg-white">
           <form onSubmit={handleSubmit} className="space-y-5 ">
             <div>
-              <p className="mb-2">Email</p>
+              <p className="mb-2">Emailll</p>
               <input
                 type="text"
                 name="email"
